@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { PersonRepository } from '@/repositories/person.repository';
+import { Person } from '@/entities/person.entity';
 
 export class CreatePersonUseCase {
   constructor(private personRepository: PersonRepository) {}

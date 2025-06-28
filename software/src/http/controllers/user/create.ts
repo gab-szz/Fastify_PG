@@ -1,5 +1,4 @@
-import { UserRepository } from '@/repositories/user.repository';
-import { CreateUserUseCase } from '@/use-cases/create-user';
+import { makeCreateUserUseCase } from '@/use-cases/factory/make-create-user-use-case';
 import { FastifyRequest, FastifyReply } from 'fastify';
 import { z } from 'zod';
 
@@ -12,8 +11,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
   const { username, password } = registerBodySchema.parse(request.body);
 
   try {
-    const userReposity = new UserRepository();
-    const createUserUseCase = new CreateUserUseCase(userReposity);
+    const createUserUseCase = makeCreateUserUseCase();
 
     const user = await createUserUseCase.handler({ username, password });
 
