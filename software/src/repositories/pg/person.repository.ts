@@ -1,7 +1,8 @@
 import { Person } from '@/entities/person.entity';
 import { database } from '@/lib/pg/db';
+import { IPersonRepository } from '../person.repository.interface';
 
-export class PersonRepository {
+export class PersonRepository implements IPersonRepository {
   public async findById(id: number): Promise<Person | undefined> {
     const result = await database.clientInstance?.query<Person>(
       `SELECT * FROM person WHERE id = $1`,
