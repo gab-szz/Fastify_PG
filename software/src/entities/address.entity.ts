@@ -1,10 +1,12 @@
-export class Address {
+import { IAddress } from './models/address.interface';
+
+export class Address implements IAddress {
   id?: number;
   street: string;
   city: string;
   state: string;
   zip_code: string;
-  person_id: number;
+  person_id?: number;
 
   constructor(street: string, city: string, state: string, zip_code: string, person_id: number) {
     this.street = street;

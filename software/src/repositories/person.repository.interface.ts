@@ -1,6 +1,6 @@
-import { Person } from '@/entities/person.entity';
+import { IPerson } from '@/entities/models/person.interface';
 
 export interface IPersonRepository {
-  findById(id: number): Promise<Person | undefined>;
-  create(person: Person): Promise<Person | undefined>;
+  findById(id: number): Promise<IPerson | undefined>;
+  create(person: IPerson): Promise<IPerson | undefined>;
 }
